@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+:root {
+  --color-canvas: #0a0a0b;
+  --color-canvas-raised: #111113;
+  --color-line: #232326;
+  --color-ink: #ededee;
+  --color-ink-muted: #9a9aa1;
+  --color-ink-faint: #616166;
+  --color-signal: #b6ff5e;
+  --color-signal-dim: #7fae44;
+  --color-amber: #e8a94c;
+  --color-rose: #d97878;
+}
+
+@theme inline {
+  --color-canvas: var(--color-canvas);
+  --color-canvas-raised: var(--color-canvas-raised);
+  --color-line: var(--color-line);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-signal: var(--color-signal);
+  --color-signal-dim: var(--color-signal-dim);
+  --color-amber: var(--color-amber);
+  --color-rose: var(--color-rose);
+  --font-serif: var(--font-source-serif);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-signal);
+  color: #0a0a0b;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+  font-feature-settings: "ss01" 1;
+}
+
+/* Prose styling for markdown-rendered research/case study bodies */
+.journal-prose {
+  color: var(--color-ink);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.journal-prose > * + * {
+  margin-top: 1.5em;
+}
+
+.journal-prose h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-top: 2.75em;
+  padding-top: 0.25em;
+  scroll-margin-top: 6rem;
+}
+
+.journal-prose h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-top: 2em;
+  scroll-margin-top: 6rem;
+}
+
+.journal-prose p {
+  color: var(--color-ink);
+}
+
+.journal-prose strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.journal-prose a {
+  color: var(--color-signal);
+  text-underline-offset: 3px;
+}
+
+.journal-prose ul,
+.journal-prose ol {
+  padding-left: 1.4em;
+  color: var(--color-ink);
+}
+
+.journal-prose ul {
+  list-style: disc;
+}
+
+.journal-prose ol {
+  list-style: decimal;
+}
+
+.journal-prose li + li {
+  margin-top: 0.5em;
+}
+
+.journal-prose li::marker {
+  color: var(--color-signal-dim);
+}
+
+.journal-prose code {
+  font-family: var(--font-mono);
+  background: var(--color-canvas-raised);
+  border: 1px solid var(--color-line);
+  padding: 0.15em 0.4em;
+  border-radius: 0.3em;
+  font-size: 0.875em;
+}
+
+.journal-prose pre {
+  background: var(--color-canvas-raised);
+  border: 1px solid var(--color-line);
+  border-radius: 0.6em;
+  padding: 1.1em 1.25em;
+  overflow-x: auto;
+}
+
+.journal-prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.journal-prose blockquote {
+  border-left: 2px solid var(--color-signal);
+  padding-left: 1.1em;
+  color: var(--color-ink-muted);
+  font-style: italic;
+}
+
+.journal-prose hr {
+  border-color: var(--color-line);
+}
+
+.journal-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.journal-prose th,
+.journal-prose td {
+  border: 1px solid var(--color-line);
+  padding: 0.6em 0.8em;
+  text-align: left;
+}
+
+.journal-prose th {
+  color: var(--color-ink-muted);
+  font-weight: 500;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+}
