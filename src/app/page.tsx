@@ -2,15 +2,10 @@ import Link from "next/link";
 import { getAllCaseStudies, getAllEvents, getAllNews, getAllResearch } from "@/lib/content";
 import { StatusDot } from "@/components/StatusDot";
 import { CategoryIcon } from "@/components/CategoryIcon";
+import { CoverArt } from "@/components/CoverArt";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { site, statusLabel } from "@/lib/site";
 import { formatDate } from "@/lib/format";
-
-const imageTreatments = [
-  "bg-[radial-gradient(circle_at_20%_16%,rgba(121,201,68,.55)_0_1px,transparent_2px),radial-gradient(circle_at_60%_60%,rgba(121,201,68,.4)_0_1.5px,transparent_2px)] bg-[length:38px_27px,55px_38px]",
-  "bg-[linear-gradient(45deg,transparent_45%,rgba(121,201,68,.16)_46%_54%,transparent_55%)] bg-[length:44px_44px]",
-  "bg-[radial-gradient(ellipse_at_10%_70%,rgba(121,201,68,.55),transparent_45%),linear-gradient(160deg,#081318_20%,#1c5d38_65%,#081318_100%)]",
-];
 
 export default async function Home() {
   const [research, caseStudies, news] = await Promise.all([
@@ -182,13 +177,13 @@ export default async function Home() {
             cta="View All Research"
           />
           <div className="mt-[18px] grid gap-[18px] md:grid-cols-3">
-            {recentResearch.map((entry, i) => (
+            {recentResearch.map((entry) => (
               <Link
                 key={entry.slug}
                 href={`/research/${entry.slug}`}
                 className="grid grid-cols-[46%_54%] overflow-hidden rounded-lg border border-paper-line transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(0,0,0,.05)]"
               >
-                <div className={`min-h-[160px] bg-navy ${imageTreatments[i % imageTreatments.length]}`} />
+                <CoverArt seed={entry.slug} category={entry.category} className="min-h-[160px]" />
                 <div className="p-5">
                   <p className="mb-2.5 font-mono text-[10px] font-extrabold uppercase tracking-[0.08em] text-signal-dim">
                     {entry.category}
@@ -219,21 +214,24 @@ export default async function Home() {
               <Link
                 key={entry.slug}
                 href={`/case-studies/${entry.slug}`}
-                className="flex flex-col justify-between gap-7 rounded-lg border border-paper-line bg-white p-7 transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(0,0,0,.06)]"
+                className="flex flex-col justify-between gap-7 overflow-hidden rounded-lg border border-paper-line bg-white transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(0,0,0,.06)]"
               >
                 <div>
-                  <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-paper-muted">
-                    <span className="text-signal-dim">{entry.category}</span>
-                    <span>{formatDate(entry.date)}</span>
+                  <CoverArt seed={entry.slug} category={entry.category} className="h-[130px] w-full" />
+                  <div className="p-7 pb-0">
+                    <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-paper-muted">
+                      <span className="text-signal-dim">{entry.category}</span>
+                      <span>{formatDate(entry.date)}</span>
+                    </div>
+                    <h3 className="mt-3 text-lg font-semibold leading-snug text-paper-ink">
+                      {entry.title}
+                    </h3>
+                    <p className="mt-2.5 text-[13px] leading-relaxed text-paper-muted">
+                      {entry.summary}
+                    </p>
                   </div>
-                  <h3 className="mt-3 text-lg font-semibold leading-snug text-paper-ink">
-                    {entry.title}
-                  </h3>
-                  <p className="mt-2.5 text-[13px] leading-relaxed text-paper-muted">
-                    {entry.summary}
-                  </p>
                 </div>
-                <div className="flex flex-wrap gap-6 border-t border-paper-line pt-5">
+                <div className="flex flex-wrap gap-6 border-t border-paper-line p-7 pt-5">
                   {entry.metrics.slice(0, 3).map((metric) => (
                     <div key={metric.label}>
                       <p className="font-serif-display text-2xl text-signal-dim">

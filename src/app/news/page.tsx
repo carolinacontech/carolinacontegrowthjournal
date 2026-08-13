@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllNews } from "@/lib/content";
+import { CoverArt } from "@/components/CoverArt";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -39,18 +40,25 @@ export default async function NewsPage() {
           <Link
             key={entry.slug}
             href={`/news/${entry.slug}`}
-            className="group flex flex-col gap-2 border-b border-line py-7 first:pt-0 last:border-b-0"
+            className="group grid grid-cols-1 gap-4 border-b border-line py-7 first:pt-0 last:border-b-0 sm:grid-cols-[140px_1fr]"
           >
-            <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-ink-faint">
-              <span>{formatDate(entry.date)}</span>
-              <span className="text-signal-dim">{entry.tag}</span>
+            <CoverArt
+              seed={entry.slug}
+              className="h-[100px] w-full rounded-lg border border-line sm:h-full"
+              iconSize="size-7"
+            />
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-ink-faint">
+                <span>{formatDate(entry.date)}</span>
+                <span className="text-signal-dim">{entry.tag}</span>
+              </div>
+              <h2 className="font-serif-display text-xl text-ink transition-colors group-hover:text-signal">
+                {entry.title}
+              </h2>
+              <p className="text-sm leading-relaxed text-ink-muted">
+                {entry.summary}
+              </p>
             </div>
-            <h2 className="font-serif-display text-xl text-ink transition-colors group-hover:text-signal">
-              {entry.title}
-            </h2>
-            <p className="text-sm leading-relaxed text-ink-muted">
-              {entry.summary}
-            </p>
           </Link>
         ))}
       </div>

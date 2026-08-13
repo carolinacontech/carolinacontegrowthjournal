@@ -9,6 +9,7 @@ import {
 import { StatusDot } from "@/components/StatusDot";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ResearchCard } from "@/components/ResearchCard";
+import { CoverArt } from "@/components/CoverArt";
 import { JsonLd } from "@/components/JsonLd";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { site, difficultyLabel } from "@/lib/site";
@@ -82,7 +83,14 @@ export default async function ResearchEntryPage({
         <span className="text-ink-muted">{entry.category}</span>
       </nav>
 
-      <div className="mt-6 grid gap-12 lg:grid-cols-[1fr_240px]">
+      <CoverArt
+        seed={entry.slug}
+        category={entry.category}
+        iconSize="size-16"
+        className="mt-6 h-[220px] w-full rounded-2xl border border-line sm:h-[300px]"
+      />
+
+      <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_240px]">
         <div className="min-w-0">
           <header className="border-b border-line pb-10">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-ink-faint">

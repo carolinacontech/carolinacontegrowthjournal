@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllNewsSlugs, getNewsEntry } from "@/lib/content";
+import { CoverArt } from "@/components/CoverArt";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -66,6 +67,12 @@ export default async function NewsEntryPage({
       <h1 className="mt-5 font-serif-display text-3xl leading-tight text-ink text-balance sm:text-4xl">
         {entry.title}
       </h1>
+
+      <CoverArt
+        seed={entry.slug}
+        className="mt-8 h-[180px] w-full rounded-2xl border border-line"
+        iconSize="size-12"
+      />
 
       <article
         className="journal-prose mt-10"
