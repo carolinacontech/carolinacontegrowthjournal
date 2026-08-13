@@ -7,10 +7,18 @@
   --color-ink: #ededee;
   --color-ink-muted: #9a9aa1;
   --color-ink-faint: #616166;
-  --color-signal: #b6ff5e;
-  --color-signal-dim: #7fae44;
+  --color-signal: #79c944;
+  --color-signal-dim: #4e9f29;
   --color-amber: #e8a94c;
   --color-rose: #d97878;
+
+  /* Magazine-layout tokens (Home hero/footer + light sections) */
+  --color-navy: #061014;
+  --color-navy-2: #08171b;
+  --color-soft: #f7f8f6;
+  --color-paper-line: #e7ebe7;
+  --color-paper-ink: #101416;
+  --color-paper-muted: #718076;
 }
 
 @theme inline {
@@ -24,6 +32,12 @@
   --color-signal-dim: var(--color-signal-dim);
   --color-amber: var(--color-amber);
   --color-rose: var(--color-rose);
+  --color-navy: var(--color-navy);
+  --color-navy-2: var(--color-navy-2);
+  --color-soft: var(--color-soft);
+  --color-paper-line: var(--color-paper-line);
+  --color-paper-ink: var(--color-paper-ink);
+  --color-paper-muted: var(--color-paper-muted);
   --font-serif: var(--font-source-serif);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
