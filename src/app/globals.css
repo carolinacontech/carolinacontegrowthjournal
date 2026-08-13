@@ -38,7 +38,7 @@
   --color-paper-line: var(--color-paper-line);
   --color-paper-ink: var(--color-paper-ink);
   --color-paper-muted: var(--color-paper-muted);
-  --font-serif: var(--font-source-serif);
+  --font-serif: var(--font-inter);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
 }
@@ -64,7 +64,31 @@ body {
 
 .font-serif-display {
   font-family: var(--font-serif);
-  font-feature-settings: "ss01" 1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Diagonal particle field decoration, matching the hero mockup */
+.hero-particles::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -110px 35%;
+  height: 330px;
+  opacity: 0.68;
+  background:
+    radial-gradient(circle at 15% 35%, #a8ff72 0 1px, transparent 2px),
+    radial-gradient(circle at 25% 48%, #7cc94a 0 1px, transparent 2px),
+    radial-gradient(circle at 45% 35%, #a8ff72 0 1px, transparent 2px),
+    radial-gradient(circle at 60% 60%, #7cc94a 0 1.5px, transparent 2px);
+  background-size:
+    38px 27px,
+    44px 31px,
+    55px 38px,
+    63px 43px;
+  transform: rotate(-7deg);
+  filter: drop-shadow(0 0 8px rgba(121, 201, 68, 0.5));
+  mask-image: linear-gradient(to right, transparent, #000 20%, #000);
+  pointer-events: none;
 }
 
 /* Prose styling for markdown-rendered research/case study bodies */

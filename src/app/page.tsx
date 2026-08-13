@@ -35,55 +35,47 @@ export default async function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_88%_58%,rgba(121,201,68,.16),transparent_45%),linear-gradient(180deg,#061014_0%,#071315_100%)] text-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 py-20 sm:px-8 sm:py-28 lg:grid-cols-[1fr_1.1fr]">
+      <section className="hero-particles relative min-h-[540px] overflow-hidden bg-[radial-gradient(circle_at_88%_58%,rgba(121,201,68,.15),transparent_24%),linear-gradient(180deg,#061014_0%,#071315_100%)] pt-[118px] text-white">
+        <div className="relative z-[2] mx-auto grid max-w-6xl items-center gap-20 px-6 pb-[72px] pt-[42px] sm:px-8 lg:grid-cols-[1fr_1.22fr]">
           <div>
-            <p className="mb-4 font-mono text-[12px] font-bold uppercase tracking-[0.15em] text-signal">
+            <p className="mb-[18px] text-xs font-extrabold uppercase tracking-[0.12em] text-signal">
               Latest Research
             </p>
-            <h1 className="max-w-xl font-serif-display text-[42px] leading-[1.02] tracking-tight text-balance sm:text-6xl">
+            <h1 className="max-w-[630px] text-[42px] font-extrabold leading-[0.98] tracking-[-0.045em] text-balance sm:text-[64px]">
               {latest.title}
             </h1>
-            <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-white/70">
+            <p className="mb-7 mt-5 max-w-[610px] text-[16px] leading-[1.65] text-[#d9e0dd]">
               {latest.summary}
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link
-                href={`/research/${latest.slug}`}
-                className="inline-flex items-center gap-3 rounded-[4px] bg-gradient-to-b from-signal to-signal-dim px-6 py-3.5 font-mono text-[12px] font-bold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(81,177,40,.25)] transition-transform hover:-translate-y-px"
-              >
-                Read Research <span>→</span>
-              </Link>
-              <Link
-                href="/case-studies"
-                className="font-mono text-[12px] font-bold uppercase tracking-wider text-white/70 hover:text-signal"
-              >
-                View Case Studies
-              </Link>
-            </div>
+            <Link
+              href={`/research/${latest.slug}`}
+              className="inline-flex items-center justify-center gap-3 rounded-[4px] bg-gradient-to-b from-signal to-signal-dim px-[22px] py-[14px] text-xs font-extrabold uppercase tracking-[0.04em] text-white shadow-[0_8px_24px_rgba(81,177,40,.18)] transition-transform hover:-translate-y-px"
+            >
+              Read Research <span>→</span>
+            </Link>
 
-            <div className="mt-8 flex items-center gap-3 font-mono text-[12px] text-white/50">
+            <div className="mt-[26px] flex items-center gap-3 text-xs text-white/70">
               <span>01</span>
-              <span className="relative h-px w-[72px] bg-white/15">
-                <span className="absolute inset-y-0 left-0 w-1/2 bg-signal" />
+              <span className="relative h-0.5 w-[72px] bg-[#2c3936]">
+                <span className="absolute inset-y-0 left-0 w-[38px] bg-signal" />
               </span>
               <span>{String(recentResearch.length).padStart(2, "0")}</span>
             </div>
           </div>
 
-          <div className="grid min-h-[260px] grid-cols-[1fr_auto_1fr] items-center rounded-[18px] border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.015] p-9 shadow-[0_25px_60px_rgba(0,0,0,.25)] backdrop-blur-sm">
+          <div className="grid min-h-[278px] grid-cols-[1fr_auto_1fr] items-center rounded-[18px] border border-white/[0.11] bg-[linear-gradient(145deg,rgba(255,255,255,.03),rgba(255,255,255,.015))] p-[38px] shadow-[0_25px_60px_rgba(0,0,0,.16)] backdrop-blur-[4px]">
             <div className="mx-auto flex flex-col items-center gap-3 text-center">
-              <span className="grid size-[100px] place-items-center rounded-full border-[6px] border-signal/60 bg-signal/5">
+              <span className="grid size-[120px] place-items-center rounded-full border-[7px] border-signal/70 bg-signal/[0.04]">
                 <StatusDot status={latest.status} />
               </span>
               <p className="font-mono text-[10px] uppercase tracking-wider text-white/50">
                 {statusLabel[latest.status]}
               </p>
             </div>
-            <span className="px-4 font-serif-display text-3xl text-white/30">→</span>
+            <span className="px-3.5 text-[32px] font-extrabold text-white">→</span>
             <div className="mx-auto flex flex-col items-center gap-3 text-center">
-              <span className="grid size-[100px] place-items-center rounded-[28px] border border-signal/40 bg-gradient-to-br from-signal/20 to-signal-dim/10">
+              <span className="grid size-[120px] place-items-center rounded-[34px] border border-[#f2bf93] bg-[linear-gradient(145deg,#eca86e,#c97d4c)] text-[#101416]">
                 <CategoryIcon category={latest.category} />
               </span>
               <p className="font-mono text-[10px] uppercase tracking-wider text-white/50">
@@ -95,19 +87,19 @@ export default async function Home() {
       </section>
 
       {/* CATEGORIES */}
-      <section className="bg-white py-14">
+      <section className="bg-white py-[26px]">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
           <SectionHeader
             title="Explore Categories"
             href="/research"
             cta="View All Research"
           />
-          <div className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="mt-[18px] grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
             {categories.map(([category, count]) => (
               <Link
                 key={category}
                 href={`/research?category=${encodeURIComponent(category)}`}
-                className="flex min-h-[126px] flex-col items-center justify-center gap-2.5 rounded-lg border border-paper-line px-4 py-6 text-center transition-all hover:-translate-y-0.5 hover:border-signal/40 hover:shadow-[0_10px_30px_rgba(0,0,0,.05)]"
+                className="flex min-h-[126px] flex-col items-center justify-center gap-2.5 rounded-lg border border-paper-line px-4 py-6 text-center transition-all hover:-translate-y-[3px] hover:border-[#cfe7c1] hover:shadow-[0_10px_30px_rgba(0,0,0,.05)]"
               >
                 <span className="text-signal-dim">
                   <CategoryIcon category={category} />
@@ -122,23 +114,24 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* TOOLS STRIP (placeholder) */}
-      <section className="bg-white pb-4">
+      {/* TOOLS STRIP (placeholder, styled like the mockup's Sponsors row) */}
+      <section className="bg-white py-[26px]">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
-          <div className="flex items-center justify-between border-b border-paper-line pb-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-paper-muted">
-              Tools referenced in this Journal
-            </p>
+          <div className="flex items-center justify-between">
+            <h2 className="text-[13px] font-extrabold uppercase tracking-[0.16em] text-paper-ink">
+              Tools Referenced
+            </h2>
             <p className="font-mono text-[10px] uppercase tracking-wider text-paper-muted/70">
               Placeholder strip — updates as entries are published
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-6 py-6 sm:grid-cols-3 lg:grid-cols-6">
-            {tools.slice(0, 12).map((tool) => (
+          <div className="mt-3 grid grid-cols-2 items-center gap-5 border-b border-paper-line py-1.5 sm:grid-cols-3 lg:grid-cols-5">
+            {tools.slice(0, 10).map((tool) => (
               <div
                 key={tool}
-                className="flex min-h-[50px] items-center justify-center text-center font-serif-display text-[15px] tracking-tight text-paper-ink/70"
+                className="flex min-h-[62px] items-center justify-center gap-2 text-center text-[19px] font-bold tracking-[-0.03em] text-[#24292a]"
               >
+                <span className="text-signal-dim">●</span>
                 {tool}
               </div>
             ))}
@@ -147,29 +140,29 @@ export default async function Home() {
       </section>
 
       {/* RECENT RESEARCH */}
-      <section className="bg-white py-14" id="articles">
+      <section className="bg-white py-[26px]" id="articles">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
           <SectionHeader
             title="Recent Research"
             href="/research"
             cta="View All Research"
           />
-          <div className="mt-7 grid gap-4 md:grid-cols-3">
+          <div className="mt-[18px] grid gap-[18px] md:grid-cols-3">
             {recentResearch.map((entry, i) => (
               <Link
                 key={entry.slug}
                 href={`/research/${entry.slug}`}
-                className="grid grid-cols-[46%_54%] overflow-hidden rounded-lg border border-paper-line transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(0,0,0,.06)]"
+                className="grid grid-cols-[46%_54%] overflow-hidden rounded-lg border border-paper-line transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(0,0,0,.05)]"
               >
                 <div className={`min-h-[160px] bg-navy ${imageTreatments[i % imageTreatments.length]}`} />
                 <div className="p-5">
-                  <p className="mb-2.5 font-mono text-[10px] font-bold uppercase tracking-wider text-signal-dim">
+                  <p className="mb-2.5 font-mono text-[10px] font-extrabold uppercase tracking-[0.08em] text-signal-dim">
                     {entry.category}
                   </p>
-                  <h3 className="mb-4 text-[16px] font-semibold leading-snug text-paper-ink">
+                  <h3 className="mb-[18px] text-[16px] font-bold leading-[1.25] text-paper-ink">
                     {entry.title}
                   </h3>
-                  <p className="font-mono text-[10px] text-paper-muted">
+                  <p className="text-[10px] text-[#8c9691]">
                     {formatDate(entry.date)} &nbsp;·&nbsp; {entry.readingTime}
                   </p>
                 </div>
@@ -180,14 +173,14 @@ export default async function Home() {
       </section>
 
       {/* CASE STUDIES */}
-      <section className="bg-soft py-14">
+      <section className="bg-soft py-[26px]">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
           <SectionHeader
             title="Case Studies"
             href="/case-studies"
             cta="View All Case Studies"
           />
-          <div className="mt-7 grid gap-5 md:grid-cols-2">
+          <div className="mt-[18px] grid gap-5 md:grid-cols-2">
             {featuredCaseStudies.map((entry) => (
               <Link
                 key={entry.slug}
@@ -225,10 +218,10 @@ export default async function Home() {
       </section>
 
       {/* NEWSLETTER */}
-      <section className="bg-white py-14">
+      <section className="bg-white py-[18px]">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
-          <div className="grid items-center gap-8 rounded-lg border border-paper-line bg-soft p-7 sm:grid-cols-[1fr_1.2fr] sm:p-9">
-            <div className="grid grid-cols-[auto_1fr] items-center gap-4">
+          <div className="grid items-center gap-[34px] rounded-[9px] border border-[#edf0ec] bg-[#f6f8f5] p-6 sm:grid-cols-[1fr_1.2fr] sm:p-7">
+            <div className="grid grid-cols-[auto_1fr] items-center gap-[18px]">
               <span className="grid size-[58px] place-items-center rounded-full bg-gradient-to-b from-signal to-signal-dim text-white">
                 <svg viewBox="0 0 48 48" className="size-[30px]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="7" y="11" width="34" height="26" rx="2" />
@@ -262,13 +255,13 @@ function SectionHeader({
   cta: string;
 }) {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3">
-      <h2 className="font-mono text-[13px] font-bold uppercase tracking-[0.14em] text-paper-ink">
+    <div className="mb-[18px] flex flex-wrap items-center justify-between gap-4">
+      <h2 className="text-[13px] font-extrabold uppercase tracking-[0.16em] text-paper-ink">
         {title}
       </h2>
       <Link
         href={href}
-        className="font-mono text-[11px] font-bold uppercase tracking-wider text-signal-dim hover:text-paper-ink"
+        className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-signal-dim hover:text-paper-ink"
       >
         {cta} →
       </Link>
