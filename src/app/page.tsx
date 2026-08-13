@@ -153,22 +153,21 @@ export default async function Home() {
             <h2 className="text-[13px] font-extrabold uppercase tracking-[0.16em] text-paper-ink">
               Our Sponsors
             </h2>
-            <a
-              href={`mailto:${site.email}?subject=Sponsoring%20The%20AI%20Growth%20Journal`}
-              className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-signal-dim hover:text-paper-ink"
-            >
-              Become a Sponsor →
-            </a>
+            <p className="font-mono text-[10px] uppercase tracking-wider text-paper-muted/70">
+              No sponsors yet — be the first
+            </p>
           </div>
-          <div className="mt-3 grid grid-cols-2 items-stretch gap-5 border-b border-paper-line py-1.5 sm:grid-cols-3">
-            <div className="flex min-h-[62px] items-center justify-center gap-2 text-center text-[25px] font-bold tracking-[-0.03em] text-[#24292a]">
-              aws
-            </div>
+          <div className="mt-3 border-b border-paper-line py-1.5">
             <a
               href={`mailto:${site.email}?subject=Sponsoring%20The%20AI%20Growth%20Journal`}
-              className="col-span-2 flex min-h-[62px] items-center justify-center gap-2 rounded-md border border-dashed border-paper-line text-center text-[13px] font-bold uppercase tracking-wider text-paper-muted transition-colors hover:border-signal-dim hover:text-signal-dim sm:col-span-2"
+              className="group flex min-h-[62px] flex-col items-center justify-center gap-1 rounded-md border border-dashed border-paper-line text-center transition-colors hover:border-signal-dim"
             >
-              + Your brand here — become a sponsor
+              <span className="flex items-center gap-2 text-[25px] font-bold tracking-[-0.03em] text-[#24292a] group-hover:text-signal-dim">
+                aws
+              </span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-paper-muted">
+                Become a sponsor — inquire by email →
+              </span>
             </a>
           </div>
         </div>
