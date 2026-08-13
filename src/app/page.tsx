@@ -88,6 +88,21 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* POSITIONING STRIP */}
+      <section className="bg-white py-6">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
+          <p className="text-center text-[13px] leading-relaxed text-paper-muted sm:text-left">
+            <span className="font-bold text-paper-ink">
+              A marketer&apos;s daily journal on AI.
+            </span>{" "}
+            Carolina uses AI in her own marketing work every day — this is
+            the log of what she tries, what breaks, and what actually moves
+            the numbers. Marketing is the lens on everything published here,
+            including News and Events.
+          </p>
+        </div>
+      </section>
+
       {/* CATEGORIES */}
       <section className="bg-white py-[26px]">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">

@@ -9,7 +9,7 @@ import { formatDate } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "News & Updates",
-  description: "Short, dated updates about the Journal itself — site changes, shipped tools, and product news.",
+  description: "Short, dated updates from a marketer's daily AI practice — site changes, shipped tools, and product news, always through a marketing lens.",
   alternates: { canonical: "/news" },
 };
 
@@ -31,8 +31,9 @@ export default async function NewsPage() {
         What&apos;s new
       </h1>
       <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted">
-        Short updates about the Journal itself — site changes, shipped
-        tooling, and product news. Not research, just log entries.
+        Short updates from a marketer&apos;s daily AI practice — site
+        changes, shipped tooling, and product news. Not research, just log
+        entries, always tied back to marketing.
       </p>
 
       <div className="mt-12">

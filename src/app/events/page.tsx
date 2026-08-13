@@ -8,7 +8,7 @@ import type { EventEntry } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Events",
-  description: "Talks, office hours and workshops where the Journal's research gets discussed live.",
+  description: "Marketing-focused talks, office hours and workshops where the Journal's AI-driven growth research gets discussed live.",
   alternates: { canonical: "/events" },
 };
 
@@ -32,8 +32,9 @@ export default function EventsPage() {
         Talks &amp; office hours
       </h1>
       <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted">
-        Live sessions where the Journal&apos;s research gets discussed,
-        questioned and occasionally proven wrong in real time.
+        Live, marketing-focused sessions where the Journal&apos;s AI-driven
+        growth research gets discussed, questioned and occasionally proven
+        wrong in real time.
       </p>
 
       <section className="mt-12">

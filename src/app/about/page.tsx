@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Why Carolina Conte documents every AI, SEO and growth experiment publicly instead of keeping it as private client work.",
+    "Carolina Conte is a marketer who uses AI in her work every day. Why she documents every experiment publicly instead of keeping it as private client work.",
   alternates: { canonical: "/about" },
 };
 
@@ -26,6 +26,11 @@ const faqs = [
     question: "What does 'Learning in Public' mean here?",
     answer:
       "Every entry is published close to when the work happened, including entries still in planning or running status. Nothing is rewritten after the fact to look more certain than it was.",
+  },
+  {
+    question: "Do News and Events cover general tech, or just marketing?",
+    answer:
+      "Marketing is the lens on everything here, including News and Events. If it doesn't connect back to how AI changes marketing and growth work day to day, it doesn't get published on this Journal.",
   },
 ];
 
@@ -49,10 +54,17 @@ export default function AboutPage() {
 
       <div className="journal-prose mt-10">
         <p>
-          I&apos;m Carolina Conte. I build and rebuild growth systems using
-          AI — websites, SEO, content pipelines, automation — and I got tired
-          of watching the same unverified advice get repeated across the
-          industry, including advice I used to repeat myself.
+          I&apos;m Carolina Conte, a marketer who uses AI in her own work
+          every single day. This Journal is that daily practice made public
+          — not a marketing blog written about AI, but the actual diary of
+          someone using it to plan, build and measure growth, one entry at a
+          time.
+        </p>
+        <p>
+          I also build the systems I write about — websites, SEO,
+          content pipelines, automation — and I got tired of watching the
+          same unverified marketing advice get repeated across the industry,
+          including advice I used to repeat myself.
         </p>
         <p>
           So instead of publishing conclusions, I started publishing the

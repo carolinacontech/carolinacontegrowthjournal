@@ -9,7 +9,7 @@ export function personSchema() {
     url: site.url,
     jobTitle: site.role,
     description:
-      "Builder documenting public experiments in AI, growth engineering, SEO and websites.",
+      "Marketer documenting daily, hands-on experiments using AI for websites, SEO and growth — evidence over theory.",
     sameAs: [site.social.twitter, site.social.linkedin, site.social.github],
   };
 }

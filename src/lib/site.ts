@@ -1,10 +1,10 @@
 export const site = {
   name: "The AI Growth Journal",
   author: "Carolina Conte",
-  role: "Growth Engineer",
+  role: "Marketer & Growth Engineer",
   url: "https://theaigrowthjournal.com",
   description:
-    "A public journal documenting experiments, failures, systems and real-world case studies about AI, websites, SEO and business growth.",
+    "A marketer's daily journal of building with AI — real experiments, failures, systems and case studies on AI, websites, SEO and marketing-driven growth.",
   email: "carolina@carolinaconte.com",
   social: {
     twitter: "https://x.com/carolinaconte",

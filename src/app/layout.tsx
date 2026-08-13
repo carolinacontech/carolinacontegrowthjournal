@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Building Growth Systems with AI`,
+    default: `${site.name} — A Marketer's Daily Journal on AI`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
@@ -32,12 +32,12 @@ export const metadata: Metadata = {
     type: "website",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Building Growth Systems with AI`,
+    title: `${site.name} — A Marketer's Daily Journal on AI`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Building Growth Systems with AI`,
+    title: `${site.name} — A Marketer's Daily Journal on AI`,
     description: site.description,
   },
   alternates: {
