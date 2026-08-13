@@ -11,6 +11,11 @@ metrics:
   - { label: "AI Citations", value: "+300%" }
   - { label: "Conversion Rate", value: "+34%" }
   - { label: "Branded Search", value: "+58%" }
+faqs:
+  - question: "Why would a business rank #1 on Google but never get mentioned by ChatGPT?"
+    answer: "Ranking well on Google reflects keyword and backlink signals; AI answer engines weigh direct-answer content structure much more heavily. A site can dominate page one and still be structurally unreadable to an LLM looking for a citable answer."
+  - question: "How do you get a local business cited by AI answer engines like ChatGPT and Perplexity?"
+    answer: "Rewrite service pages to open with a direct answer to the exact question a customer would ask an AI assistant, add real pricing-range tables instead of vague symbols, and complete LocalBusiness/Service schema with accurate service-area data — then monitor citation rate monthly against a fixed query set."
 ---
 
 ## Context

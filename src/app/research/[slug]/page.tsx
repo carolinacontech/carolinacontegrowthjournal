@@ -10,6 +10,7 @@ import { StatusDot } from "@/components/StatusDot";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ResearchCard } from "@/components/ResearchCard";
 import { CoverArt } from "@/components/CoverArt";
+import { FaqBlock } from "@/components/FaqBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { site, difficultyLabel } from "@/lib/site";
@@ -153,6 +154,8 @@ export default async function ResearchEntryPage({
               ))}
             </div>
           </div>
+
+          <FaqBlock faqs={entry.faqs ?? []} />
         </div>
 
         <TableOfContents headings={entry.headings} />

@@ -10,6 +10,13 @@ tools: ["Python", "requests", "GPTBot", "Screaming Frog", "Schema.org validator"
 summary: "Instead of validating schema against Google's Rich Results Test, I checked what happens when GPTBot and ClaudeBot actually fetch a page — and found a gap between 'valid JSON-LD' and 'usable JSON-LD.'"
 keyFinding: "38% of pages with 'valid' schema markup served materially different structured data to AI crawlers than to Googlebot, due to client-side rendering timing."
 relatedSlugs: ["llm-citation-signals", "rebuilding-my-internal-linking-with-embeddings"]
+faqs:
+  - question: "Why doesn't my schema markup show up for GPTBot or ClaudeBot even though it passes Google's Rich Results Test?"
+    answer: "Most AI crawlers don't execute JavaScript. If your JSON-LD is injected client-side after hydration, a browser-based validator will pass it while the raw HTTP response the crawler actually receives is empty or incomplete."
+  - question: "Does passing the Rich Results Test mean AI crawlers can read my structured data?"
+    answer: "No. Passing the validator only proves the JSON-LD is syntactically valid when rendered in a browser. In a 40-URL sample, 38% of pages that passed served materially different structured data to a raw, non-rendering fetch."
+  - question: "How do I check what an AI crawler actually sees on my page?"
+    answer: "Fetch the page with a plain HTTP GET using the crawler's published user agent and no JavaScript execution, then diff the JSON-LD blocks against a headless-browser render of the same URL."
 ---
 
 ## Context
@@ -37,6 +44,11 @@ I built a small Python script that fetches both versions, extracts every `ld+jso
 - 38% of the 40 pages served incomplete or empty structured data to the raw-HTTP fetch, despite passing Google's Rich Results Test.
 - The most common failure was `Article` schema populated by a client-side CMS integration that ran after page load.
 - My own site had one offending page — a case study using a React component to inject FAQ schema after hydration. Moving it to a server-rendered `<script>` tag fixed it immediately, verified by re-running the raw fetch.
+
+| Fetch method | Executes JavaScript | Saw complete JSON-LD |
+| --- | --- | --- |
+| Headless browser (Rich Results Test) | Yes | 40/40 pages |
+| Raw HTTP GET, crawler user agent | No | 25/40 pages |
 
 ## What I learned
 

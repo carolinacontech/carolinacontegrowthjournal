@@ -7,6 +7,7 @@ import {
 } from "@/lib/content";
 import { TableOfContents } from "@/components/TableOfContents";
 import { CoverArt } from "@/components/CoverArt";
+import { FaqBlock } from "@/components/FaqBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, caseStudySchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -130,6 +131,8 @@ export default async function CaseStudyEntryPage({
               ))}
             </div>
           </div>
+
+          <FaqBlock faqs={entry.faqs ?? []} />
         </div>
 
         <TableOfContents headings={entry.headings} />

@@ -10,6 +10,11 @@ tools: ["Claude Agent SDK", "Screaming Frog CLI", "Google Search Console API"]
 summary: "Before I automate anything client-facing, I want to know exactly where an autonomous agent breaks down during a real technical SEO audit — not whether it can produce a nice-looking report."
 keyFinding: null
 relatedSlugs: ["structured-data-for-ai-crawlers"]
+faqs:
+  - question: "Can an AI agent run a full technical SEO audit without a human?"
+    answer: "Unknown yet — this study hasn't run. The plan is to score an agent's audit against a human-run audit of the same 5 sites, and publish exactly where it matched, where it made factual errors, and where it made a reasonable-but-different judgment call."
+  - question: "What tools does the audit-agent experiment use?"
+    answer: "Claude Agent SDK for orchestration, Screaming Frog's CLI for crawl data, and the Google Search Console API for indexation and query data."
 ---
 
 ## Context

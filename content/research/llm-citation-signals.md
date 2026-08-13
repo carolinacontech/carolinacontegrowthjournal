@@ -12,6 +12,13 @@ tools: ["ChatGPT", "Perplexity", "Claude", "Screaming Frog", "Python", "pandas"]
 summary: "I pulled 400 citations from ChatGPT, Perplexity and Gemini answers across 60 queries to find out which on-page patterns actually correlate with being the cited source, versus the LLM-SEO folklore repeated everywhere."
 keyFinding: "Pages with a direct-answer paragraph in the first 100 words were cited 2.3x more often than pages that led with a narrative intro, regardless of domain authority."
 relatedSlugs: ["structured-data-for-ai-crawlers", "rebuilding-my-internal-linking-with-embeddings"]
+faqs:
+  - question: "What actually gets a page cited by ChatGPT and Perplexity?"
+    answer: "A direct-answer paragraph in the first 100 words and headings that mirror the exact question a user would type. Both outperformed schema markup and backlink count in a 412-citation sample."
+  - question: "Does FAQ schema help a page get cited by AI answer engines?"
+    answer: "Not independently. Once direct-answer structure was controlled for, FAQ schema had almost no measurable effect on citation likelihood — it appears to be a proxy for good structure, not a cause of citation."
+  - question: "Do backlinks matter for LLM citation the way they do for Google rankings?"
+    answer: "Less than expected. Backlink count had a much weaker relationship with LLM citation than with the same pages' Google rankings for identical queries."
 ---
 
 ## Context
@@ -43,6 +50,14 @@ For the pages I control, I restructured three existing pages to test the top pre
 - FAQ schema presence had almost no independent effect once direct-answer structure was controlled for — it seems to be a proxy variable, not a cause.
 - Backlink count mattered far less for LLM citation than for classic Google rankings on the same queries.
 - Of my three restructured pages, two picked up new citations in Perplexity within 12 days; the third (a highly technical page) saw no change, which matches the pattern in the broader dataset for niche technical queries.
+
+| Structural variable | Regression coefficient | Practical read |
+| --- | --- | --- |
+| Direct-answer opening (first 100 words) | Strongest | Single highest-leverage change to make first |
+| Heading-to-question match | Second strongest | Phrase H2s the way a user would type the query |
+| Comparison/pricing table present | Moderate | Helps on commercial-intent queries specifically |
+| FAQ schema present | Weak, non-independent | Not worth prioritizing on its own |
+| Backlink count | Weak for LLM citation | Still matters for Google, much less here |
 
 ## What I learned
 

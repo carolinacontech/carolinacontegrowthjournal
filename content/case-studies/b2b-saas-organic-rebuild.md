@@ -12,6 +12,11 @@ metrics:
   - { label: "Qualified Leads", value: "+42%" }
   - { label: "Time to Publish", value: "-70%" }
   - { label: "Indexed Pages", value: "+210%" }
+faqs:
+  - question: "How do you rebuild a B2B SaaS site's organic funnel without a full redesign?"
+    answer: "Restructure the content library into topic clusters tied to product use cases, fix internal linking so authority routes to commercial pages, and use an AI-assisted-but-human-edited drafting workflow to keep production sustainable — all without touching the existing design system."
+  - question: "Does AI-assisted content drafting actually save time on a B2B SaaS content team?"
+    answer: "Yes, but only after the brief template forces enough specificity — the first version produced generic copy that needed full rewrites. Once fixed, time to publish dropped from about 6 hours to under 2, with a human still editing every draft."
 ---
 
 ## Context

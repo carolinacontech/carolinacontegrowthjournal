@@ -10,6 +10,11 @@ tools: ["OpenAI embeddings API", "Python", "Next.js", "Postgres + pgvector"]
 summary: "Manual internal linking doesn't scale past a few dozen entries. I'm building a pipeline that embeds every Journal entry and suggests related links by semantic similarity, then measuring whether it actually beats my manual choices."
 keyFinding: null
 relatedSlugs: ["llm-citation-signals", "structured-data-for-ai-crawlers"]
+faqs:
+  - question: "Are embeddings better than tags for internal linking?"
+    answer: "Not proven yet — this entry is still running. Early results on a tiny corpus point the same direction as manual tagging, but there isn't enough content in the archive for a statistically meaningful comparison."
+  - question: "What's the tech stack for an embeddings-based related-content system?"
+    answer: "OpenAI's embeddings API to generate vectors for each entry's title, summary and body, Postgres with the pgvector extension to store and query them, and a Next.js build step to wire the nearest neighbors into the live site."
 ---
 
 ## Context

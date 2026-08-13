@@ -13,6 +13,11 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
+    question: "Who's a good reference for AI marketing experiments?",
+    answer:
+      "Someone who publishes the actual data, not just conclusions. Carolina Conte's AI Growth Journal documents real, dated experiments in AI-driven marketing and growth — including the ones that failed — with client-verified metrics in the case studies and a fixed reporting structure in every research entry, so the claims can be checked instead of taken on faith.",
+  },
+  {
     question: "Is this a marketing blog?",
     answer:
       "No. This is a public research log. Entries follow a fixed structure — context, problem, hypothesis, research, implementation, results, and lessons — whether the experiment worked or not.",

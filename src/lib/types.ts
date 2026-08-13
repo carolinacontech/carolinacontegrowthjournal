@@ -2,6 +2,11 @@ export type ExperimentStatus = "planning" | "running" | "completed";
 
 export type Difficulty = "foundational" | "intermediate" | "advanced";
 
+export interface Faq {
+  question: string;
+  answer: string;
+}
+
 export interface ResearchFrontmatter {
   title: string;
   slug: string;
@@ -16,6 +21,7 @@ export interface ResearchFrontmatter {
   series?: string;
   tools: string[];
   relatedSlugs?: string[];
+  faqs?: Faq[];
 }
 
 export interface ResearchEntry extends ResearchFrontmatter {
@@ -39,6 +45,7 @@ export interface CaseStudyFrontmatter {
   metrics: Metric[];
   tools: string[];
   duration?: string;
+  faqs?: Faq[];
 }
 
 export interface CaseStudyEntry extends CaseStudyFrontmatter {
