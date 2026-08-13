@@ -28,7 +28,7 @@ function Brand({ dark }: { dark?: boolean }) {
 
 function NavLinks({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex gap-9 text-[13px] font-bold uppercase tracking-[0.04em] ${className}`}>
+    <div className={`flex gap-6 text-[12px] font-bold uppercase tracking-[0.04em] ${className}`}>
       {site.nav.map((item) => (
         <Link key={item.href} href={item.href} className="hover:text-signal-dim">
           {item.label}
@@ -46,15 +46,15 @@ export function Header() {
   if (isHome) {
     return (
       <header className="absolute inset-x-0 top-0 z-20">
-        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_minmax(520px,760px)] items-start gap-6 px-6 pt-[18px] sm:px-8 max-lg:flex max-lg:justify-between max-lg:items-center">
+        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_minmax(620px,900px)] items-start gap-6 px-6 pt-[18px] sm:px-8 max-lg:flex max-lg:justify-between max-lg:items-center">
           <Brand />
 
           <nav
             aria-label="Main navigation"
-            className="hidden h-[72px] items-center justify-between rounded-bl-[18px] bg-white px-[38px] shadow-[0_3px_14px_rgba(0,0,0,.06)] lg:flex"
+            className="hidden h-[72px] items-center justify-between rounded-bl-[18px] bg-white px-8 shadow-[0_3px_14px_rgba(0,0,0,.06)] lg:flex"
           >
             <NavLinks className="text-paper-ink" />
-            <Link href="/research?focus=search" aria-label="Search" className="ml-8 text-paper-ink hover:text-signal-dim">
+            <Link href="/research?focus=search" aria-label="Search" className="ml-6 text-paper-ink hover:text-signal-dim">
               <svg viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
                 <circle cx="11" cy="11" r="7" />
                 <path d="m21 21-4.35-4.35" />

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { getAllCaseStudies, getAllResearch } from "@/lib/content";
+import { getAllCaseStudies, getAllEvents, getAllNews, getAllResearch } from "@/lib/content";
 import { StatusDot } from "@/components/StatusDot";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { NewsletterForm } from "@/components/NewsletterForm";
-import { statusLabel } from "@/lib/site";
+import { site, statusLabel } from "@/lib/site";
 import { formatDate } from "@/lib/format";
 
 const imageTreatments = [
@@ -13,14 +13,21 @@ const imageTreatments = [
 ];
 
 export default async function Home() {
-  const [research, caseStudies] = await Promise.all([
+  const [research, caseStudies, news] = await Promise.all([
     getAllResearch(),
     getAllCaseStudies(),
+    getAllNews(),
   ]);
+  const events = getAllEvents();
 
   const latest = research[0];
   const recentResearch = research.slice(0, 3);
   const featuredCaseStudies = caseStudies.slice(0, 2);
+  const latestNews = news[0];
+  const newsCount = news.length;
+  const upcomingEvents = events.filter((e) => e.status === "upcoming");
+  const nextEvent = upcomingEvents[0];
+  const upcomingEventsCount = upcomingEvents.length;
 
   const categoryCounts = new Map<string, number>();
   for (const entry of [...research, ...caseStudies]) {
@@ -139,6 +146,34 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* SPONSORS */}
+      <section className="bg-white py-[26px]">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
+          <div className="flex items-center justify-between">
+            <h2 className="text-[13px] font-extrabold uppercase tracking-[0.16em] text-paper-ink">
+              Our Sponsors
+            </h2>
+            <a
+              href={`mailto:${site.email}?subject=Sponsoring%20The%20AI%20Growth%20Journal`}
+              className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-signal-dim hover:text-paper-ink"
+            >
+              Become a Sponsor →
+            </a>
+          </div>
+          <div className="mt-3 grid grid-cols-2 items-stretch gap-5 border-b border-paper-line py-1.5 sm:grid-cols-3">
+            <div className="flex min-h-[62px] items-center justify-center gap-2 text-center text-[25px] font-bold tracking-[-0.03em] text-[#24292a]">
+              aws
+            </div>
+            <a
+              href={`mailto:${site.email}?subject=Sponsoring%20The%20AI%20Growth%20Journal`}
+              className="col-span-2 flex min-h-[62px] items-center justify-center gap-2 rounded-md border border-dashed border-paper-line text-center text-[13px] font-bold uppercase tracking-wider text-paper-muted transition-colors hover:border-signal-dim hover:text-signal-dim sm:col-span-2"
+            >
+              + Your brand here — become a sponsor
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* RECENT RESEARCH */}
       <section className="bg-white py-[26px]" id="articles">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
@@ -214,6 +249,40 @@ export default async function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* NEWS & EVENTS TEASER */}
+      <section className="bg-white py-[26px]">
+        <div className="mx-auto grid max-w-6xl gap-5 px-6 sm:px-8 md:grid-cols-2">
+          <Link
+            href="/news"
+            className="rounded-lg border border-paper-line p-6 transition-all hover:-translate-y-0.5 hover:border-signal-dim hover:shadow-[0_12px_30px_rgba(0,0,0,.05)]"
+          >
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-signal-dim">
+              News &amp; Updates
+            </p>
+            <p className="mt-2 font-serif-display text-lg text-paper-ink">
+              {latestNews ? latestNews.title : "Site changes and product news"}
+            </p>
+            <p className="mt-2 text-[11px] uppercase tracking-wider text-paper-muted">
+              {newsCount} {newsCount === 1 ? "update" : "updates"} logged →
+            </p>
+          </Link>
+          <Link
+            href="/events"
+            className="rounded-lg border border-paper-line p-6 transition-all hover:-translate-y-0.5 hover:border-signal-dim hover:shadow-[0_12px_30px_rgba(0,0,0,.05)]"
+          >
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-signal-dim">
+              Events
+            </p>
+            <p className="mt-2 font-serif-display text-lg text-paper-ink">
+              {nextEvent ? nextEvent.title : "No events scheduled right now"}
+            </p>
+            <p className="mt-2 text-[11px] uppercase tracking-wider text-paper-muted">
+              {upcomingEventsCount} upcoming →
+            </p>
+          </Link>
         </div>
       </section>
 

@@ -14,6 +14,8 @@ export const site = {
   nav: [
     { label: "Research", href: "/research" },
     { label: "Case Studies", href: "/case-studies" },
+    { label: "News", href: "/news" },
+    { label: "Events", href: "/events" },
     { label: "Now", href: "/now" },
     { label: "About", href: "/about" },
   ],

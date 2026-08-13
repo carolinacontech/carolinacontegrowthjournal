@@ -46,3 +46,31 @@ export interface CaseStudyEntry extends CaseStudyFrontmatter {
   readingTime: string;
   headings: { depth: number; text: string; slug: string }[];
 }
+
+export interface NewsFrontmatter {
+  title: string;
+  slug: string;
+  date: string;
+  tag: string;
+  summary: string;
+}
+
+export interface NewsEntry extends NewsFrontmatter {
+  content: string;
+  readingTime: string;
+}
+
+export type EventStatus = "upcoming" | "past";
+export type EventFormat = "online" | "in-person";
+
+export interface EventEntry {
+  title: string;
+  slug: string;
+  date: string;
+  status: EventStatus;
+  format: EventFormat;
+  location: string;
+  summary: string;
+  link?: string;
+  linkLabel?: string;
+}

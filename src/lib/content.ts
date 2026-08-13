@@ -8,12 +8,17 @@ import html from "remark-html";
 import type {
   CaseStudyEntry,
   CaseStudyFrontmatter,
+  EventEntry,
+  NewsEntry,
+  NewsFrontmatter,
   ResearchEntry,
   ResearchFrontmatter,
 } from "./types";
 
 const RESEARCH_DIR = path.join(process.cwd(), "content/research");
 const CASE_STUDIES_DIR = path.join(process.cwd(), "content/case-studies");
+const NEWS_DIR = path.join(process.cwd(), "content/news");
+const EVENTS_DIR = path.join(process.cwd(), "content/events");
 const NOW_PATH = path.join(process.cwd(), "content/now/now.md");
 
 function slugify(text: string) {
@@ -70,6 +75,10 @@ export function getAllCaseStudySlugs() {
   return getSlugsFromDir(CASE_STUDIES_DIR);
 }
 
+export function getAllNewsSlugs() {
+  return getSlugsFromDir(NEWS_DIR);
+}
+
 export async function getResearchEntry(slug: string): Promise<ResearchEntry> {
   const fullPath = path.join(RESEARCH_DIR, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -100,6 +109,40 @@ export async function getCaseStudyEntry(slug: string): Promise<CaseStudyEntry> {
     readingTime: stats.text,
     headings: extractHeadings(content),
   };
+}
+
+export async function getNewsEntry(slug: string): Promise<NewsEntry> {
+  const fullPath = path.join(NEWS_DIR, `${slug}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const { data, content } = matter(fileContents);
+  const stats = readingTime(content);
+  const rendered = await renderMarkdown(content);
+  const frontmatter = data as NewsFrontmatter;
+  return {
+    ...frontmatter,
+    slug: frontmatter.slug ?? slug,
+    content: rendered,
+    readingTime: stats.text,
+  };
+}
+
+export async function getAllNews(): Promise<NewsEntry[]> {
+  const slugs = getAllNewsSlugs();
+  const entries = await Promise.all(slugs.map((slug) => getNewsEntry(slug)));
+  return entries.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+export function getAllEvents(): EventEntry[] {
+  if (!fs.existsSync(EVENTS_DIR)) return [];
+  const slugs = getSlugsFromDir(EVENTS_DIR);
+  const entries = slugs.map((slug) => {
+    const fullPath = path.join(EVENTS_DIR, `${slug}.md`);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data } = matter(fileContents);
+    const frontmatter = data as EventEntry;
+    return { ...frontmatter, slug: frontmatter.slug ?? slug };
+  });
+  return entries.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export async function getAllResearch(): Promise<ResearchEntry[]> {

@@ -1,15 +1,15 @@
 import type { MetadataRoute } from "next";
-import { getAllCaseStudySlugs, getAllResearchSlugs } from "@/lib/content";
+import { getAllCaseStudySlugs, getAllNewsSlugs, getAllResearchSlugs } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/research", "/case-studies", "/now", "/about"].map(
+  const staticRoutes = ["", "/research", "/case-studies", "/news", "/events", "/now", "/about"].map(
     (route) => ({
       url: `${site.url}${route}`,
       lastModified: new Date(),
-      changeFrequency: (route === "/now" ? "weekly" : "monthly") as
-        | "weekly"
-        | "monthly",
+      changeFrequency: (route === "/now" || route === "/news" || route === "/events"
+        ? "weekly"
+        : "monthly") as "weekly" | "monthly",
       priority: route === "" ? 1 : 0.8,
     })
   );
@@ -28,5 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...researchRoutes, ...caseStudyRoutes];
+  const newsRoutes = getAllNewsSlugs().map((slug) => ({
+    url: `${site.url}/news/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
+
+  return [...staticRoutes, ...researchRoutes, ...caseStudyRoutes, ...newsRoutes];
 }
