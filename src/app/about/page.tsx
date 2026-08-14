@@ -5,9 +5,9 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Me",
   description:
-    "Carolina Conte is a marketer who uses AI in her work every day. Why she documents every experiment publicly instead of keeping it as private client work.",
+    "Carolina Conte — 15+ years across marketing strategy, digital transformation and now AI-driven growth. Who she is, and why she documents every experiment publicly.",
   alternates: { canonical: "/about" },
 };
 
@@ -45,50 +45,109 @@ export default function AboutPage() {
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", url: site.url },
-          { name: "About", url: `${site.url}/about` },
+          { name: "About Me", url: `${site.url}/about` },
         ])}
       />
       <JsonLd data={faqSchema(faqs)} />
 
       <p className="font-mono text-[12px] uppercase tracking-wider text-signal-dim">
-        About
+        About Me
       </p>
       <h1 className="mt-4 font-serif-display text-4xl text-ink sm:text-5xl">
-        Why I document all of this
+        Carolina Conte
       </h1>
+      <p className="mt-4 max-w-xl text-lg leading-relaxed text-ink-muted">
+        From marketing strategy to digital innovation — and now, to AI.
+      </p>
 
       <div className="journal-prose mt-10">
         <p>
-          I&apos;m Carolina Conte, a marketer who uses AI in her own work
-          every single day. This Journal is that daily practice made public
-          — not a marketing blog written about AI, but the actual diary of
-          someone using it to plan, build and measure growth, one entry at a
-          time.
+          My career has been shaped by a constant curiosity for how brands
+          grow, how people make decisions, and how technology can transform
+          the way businesses connect with their audiences.
         </p>
         <p>
-          I also build the systems I write about — websites, SEO,
-          content pipelines, automation — and I got tired of watching the
-          same unverified marketing advice get repeated across the industry,
-          including advice I used to repeat myself.
+          With more than 15 years of experience across marketing,
+          communications, brand strategy, digital transformation and business
+          development, I&apos;ve worked across different industries and
+          environments — from global brands and advertising agencies to
+          corporate strategy, entrepreneurship and digital consulting.
         </p>
         <p>
-          So instead of publishing conclusions, I started publishing the
-          process. This Journal documents what I&apos;m testing, why, what
-          happened, and what I&apos;d do differently. Some entries end in a
-          clear result. Some end in a failed hypothesis. Both get published,
-          because a documented failure is still evidence, and evidence is
-          the only thing worth building a reputation on.
+          I started in traditional marketing and communications, where I
+          learned the fundamentals of building brands, understanding
+          consumers, and turning business objectives into meaningful
+          communication strategies. My experience includes working with
+          organizations and brands such as Coca-Cola, FIFA, Kimberly-Clark,
+          Ogilvy and Bennigan&apos;s.
         </p>
-        <h2>What I actually do</h2>
+
+        <h2>Strategy meets technology</h2>
         <p>
-          I design and build websites, run technical and LLM-focused SEO,
-          build automation and AI-assisted workflows, and design growth
-          systems for businesses that want more than a one-off campaign. The
-          <Link href="/case-studies"> case studies</Link> section documents
-          that work with real, client-verified metrics. The{" "}
-          <Link href="/research">research</Link> section documents the
-          underlying experiments — the ones that inform the client work,
-          not the other way around.
+          As the digital landscape evolved, so did my career. I moved deeper
+          into digital marketing, e-commerce, paid media, CRM, SEO, content
+          strategy and marketing automation — increasingly interested not
+          just in how to attract an audience, but in what happens after
+          someone clicks: the experience, the journey, the technology, and
+          the systems that turn attention into meaningful business results.
+        </p>
+        <p>
+          I don&apos;t see a website as simply a digital brochure. I see it
+          as part of a larger business ecosystem — one that connects
+          positioning, branding, user experience, content, SEO, conversion,
+          CRM, automation and data. Today I combine marketing strategy with
+          digital product development to build experiences and systems that
+          help businesses communicate more clearly, operate more efficiently,
+          and grow.
+        </p>
+
+        <h2>The next chapter: AI</h2>
+        <p>
+          The next stage of my career is centered on artificial intelligence.
+          AI is changing not only how marketers work, but how businesses
+          build, communicate, sell and operate. I&apos;m particularly
+          interested in the intersection of AI, marketing, automation and
+          digital experiences — using technology as a strategic tool, not
+          just the latest trend.
+        </p>
+        <p>
+          I don&apos;t believe in technology for technology&apos;s sake. I
+          believe in using the right technology to solve the right problem.
+          That belief is the entire premise of this Journal — the{" "}
+          <Link href="/research">research</Link> section and{" "}
+          <Link href="/case-studies">case studies</Link> are where I test it,
+          in public, with real numbers attached.
+        </p>
+
+        <h2>What I bring</h2>
+        <p>
+          Strategic thinking, marketing expertise, business perspective,
+          creative problem-solving, and hands-on digital execution. I can
+          think about the big picture, but I also enjoy the details —
+          building the website, mapping the customer journey, creating the
+          automation, analyzing the data, testing the message, and finding
+          ways to make the whole system work better.
+        </p>
+        <p>
+          Marketing taught me how to understand people. Business taught me
+          how to think strategically. Technology taught me how to build. AI
+          is teaching me how to rethink what&apos;s possible.
+        </p>
+
+        <h2>Why I document all of this</h2>
+        <p>
+          I got tired of watching the same unverified marketing advice get
+          repeated across the industry, including advice I used to repeat
+          myself. So instead of publishing conclusions, I started publishing
+          the process. This Journal documents what I&apos;m testing, why,
+          what happened, and what I&apos;d do differently — using AI in my
+          own marketing work, every day, in public.
+        </p>
+        <p>
+          Some entries end in a clear result. Some end in a failed
+          hypothesis. Both get published, because a documented failure is
+          still evidence, and evidence is the only thing worth building a
+          reputation on.
         </p>
         <h2>What I&apos;m not</h2>
         <p>

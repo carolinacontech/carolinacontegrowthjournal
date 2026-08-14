@@ -17,7 +17,7 @@ export const site = {
     { label: "News", href: "/news" },
     { label: "Events", href: "/events" },
     { label: "Now", href: "/now" },
-    { label: "About", href: "/about" },
+    { label: "About Me", href: "/about" },
   ],
 };
 
