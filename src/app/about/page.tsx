@@ -61,6 +61,7 @@ export default function AboutPage() {
       </p>
 
       <div className="journal-prose mt-10">
+        <h2>From marketing strategy to digital innovation</h2>
         <p>
           My career has been shaped by a constant curiosity for how brands
           grow, how people make decisions, and how technology can transform
@@ -100,6 +101,12 @@ export default function AboutPage() {
           help businesses communicate more clearly, operate more efficiently,
           and grow.
         </p>
+        <p>
+          My work can include everything from developing a brand strategy
+          and designing a conversion-focused website to building automated
+          workflows, improving a customer journey, integrating CRM systems,
+          or using AI to make marketing processes smarter and more scalable.
+        </p>
 
         <h2>The next chapter: AI</h2>
         <p>
@@ -127,6 +134,11 @@ export default function AboutPage() {
           building the website, mapping the customer journey, creating the
           automation, analyzing the data, testing the message, and finding
           ways to make the whole system work better.
+        </p>
+        <p>
+          My career has never followed a single straight path. And
+          that&apos;s exactly what makes it valuable — every stage has added
+          another layer to the way I approach digital business today.
         </p>
         <p>
           Marketing taught me how to understand people. Business taught me
