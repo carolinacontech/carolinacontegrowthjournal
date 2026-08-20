@@ -157,28 +157,30 @@ export default async function Home() {
       </section>
 
       {/* SPONSORS */}
-      <section className="bg-white py-[26px]">
+      <section className="bg-soft py-[26px]">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
-          <div className="flex items-center justify-between">
-            <h2 className="text-[13px] font-extrabold uppercase tracking-[0.16em] text-paper-ink">
-              Our Sponsors
-            </h2>
-            <p className="font-mono text-[10px] uppercase tracking-wider text-paper-muted/70">
-              No sponsors yet — be the first
-            </p>
-          </div>
-          <div className="mt-3 border-b border-paper-line py-1.5">
-            <a
-              href={`mailto:${site.email}?subject=Sponsoring%20The%20AI%20Growth%20Journal`}
-              className="group flex min-h-[62px] flex-col items-center justify-center gap-1 rounded-md border border-dashed border-paper-line text-center transition-colors hover:border-signal-dim"
-            >
-              <span className="flex items-center gap-2 text-[25px] font-bold tracking-[-0.03em] text-[#24292a] group-hover:text-signal-dim">
-                aws
-              </span>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-paper-muted">
-                Become a sponsor — inquire by email →
-              </span>
-            </a>
+          <div className="rounded-lg border border-paper-line bg-white p-6 sm:p-7">
+            <div className="flex items-center justify-between">
+              <h2 className="text-[13px] font-extrabold uppercase tracking-[0.16em] text-paper-ink">
+                Our Sponsors
+              </h2>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-paper-muted/70">
+                No sponsors yet — be the first
+              </p>
+            </div>
+            <div className="mt-4">
+              <a
+                href={`mailto:${site.email}?subject=Sponsoring%20The%20AI%20Growth%20Journal`}
+                className="group flex min-h-[62px] flex-col items-center justify-center gap-1 rounded-md border border-dashed border-paper-line text-center transition-colors hover:border-signal-dim"
+              >
+                <span className="flex items-center gap-2 text-[25px] font-bold tracking-[-0.03em] text-[#24292a] group-hover:text-signal-dim">
+                  aws
+                </span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-paper-muted">
+                  Become a sponsor — inquire by email →
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

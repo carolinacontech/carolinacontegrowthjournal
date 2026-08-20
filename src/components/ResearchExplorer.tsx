@@ -32,10 +32,11 @@ export function ResearchExplorer({ entries }: { entries: ResearchEntry[] }) {
       <div className="flex flex-col gap-4 border-b border-line pb-8 sm:flex-row sm:items-center sm:justify-between">
         <input
           type="search"
+          aria-label="Search research entries"
           placeholder="Search research entries…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-full border border-line bg-canvas-raised px-5 py-2.5 text-sm text-ink placeholder:text-ink-faint focus:border-signal-dim focus:outline-none sm:max-w-xs"
+          className="w-full rounded-full border border-line bg-canvas-raised px-5 py-2.5 text-sm text-ink placeholder:text-ink-faint focus:border-signal-dim sm:max-w-xs"
         />
         <div className="flex flex-wrap gap-2">
           <FilterGroup
@@ -87,7 +88,7 @@ function FilterGroup({
       aria-label={label}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="rounded-full border border-line bg-canvas-raised px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-ink-muted focus:border-signal-dim focus:outline-none"
+      className="rounded-full border border-line bg-canvas-raised px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-ink-muted focus:border-signal-dim"
     >
       {options.map((option) => (
         <option key={option} value={option}>

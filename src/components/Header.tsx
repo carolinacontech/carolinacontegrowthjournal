@@ -26,14 +26,30 @@ function Brand({ dark }: { dark?: boolean }) {
   );
 }
 
-function NavLinks({ className = "" }: { className?: string }) {
+function NavLinks({
+  className = "",
+  pathname,
+  activeClassName = "text-signal-dim",
+}: {
+  className?: string;
+  pathname: string;
+  activeClassName?: string;
+}) {
   return (
     <div className={`flex gap-6 text-[12px] font-bold uppercase tracking-[0.04em] ${className}`}>
-      {site.nav.map((item) => (
-        <Link key={item.href} href={item.href} className="hover:text-signal-dim">
-          {item.label}
-        </Link>
-      ))}
+      {site.nav.map((item) => {
+        const isActive = pathname === item.href;
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            aria-current={isActive ? "page" : undefined}
+            className={`hover:text-signal-dim ${isActive ? activeClassName : ""}`}
+          >
+            {item.label}
+          </Link>
+        );
+      })}
     </div>
   );
 }
@@ -53,7 +69,11 @@ export function Header() {
             aria-label="Main navigation"
             className="hidden h-[72px] items-center justify-between rounded-bl-[18px] bg-white px-8 shadow-[0_3px_14px_rgba(0,0,0,.06)] lg:flex"
           >
-            <NavLinks className="text-paper-ink" />
+            <NavLinks
+              className="text-paper-ink"
+              pathname={pathname}
+              activeClassName="text-signal-dim underline underline-offset-4"
+            />
             <Link href="/research?focus=search" aria-label="Search" className="ml-6 text-paper-ink hover:text-signal-dim">
               <svg viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
                 <circle cx="11" cy="11" r="7" />
@@ -74,7 +94,13 @@ export function Header() {
         {open && (
           <nav className="flex flex-col gap-6 bg-navy px-6 py-8 text-lg font-bold text-white lg:hidden">
             {site.nav.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="hover:text-signal">
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                aria-current={pathname === item.href ? "page" : undefined}
+                className={`hover:text-signal ${pathname === item.href ? "text-signal" : ""}`}
+              >
                 {item.label}
               </Link>
             ))}
@@ -88,7 +114,11 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-navy/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 sm:px-8">
         <Brand />
-        <NavLinks className="hidden text-white/75 lg:flex" />
+        <NavLinks
+          className="hidden text-white/75 lg:flex"
+          pathname={pathname}
+          activeClassName="text-signal underline underline-offset-4"
+        />
         <div className="flex items-center gap-3">
           <Link href="/research?focus=search" aria-label="Search" className="hidden text-white/75 hover:text-signal sm:inline-flex">
             <svg viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -115,7 +145,13 @@ export function Header() {
       {open && (
         <nav className="flex flex-col gap-6 border-t border-white/10 bg-navy px-6 py-8 text-lg font-bold lg:hidden">
           {site.nav.map((item) => (
-            <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="text-white hover:text-signal">
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              aria-current={pathname === item.href ? "page" : undefined}
+              className={`hover:text-signal ${pathname === item.href ? "text-signal" : "text-white"}`}
+            >
               {item.label}
             </Link>
           ))}

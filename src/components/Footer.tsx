@@ -84,8 +84,9 @@ export async function Footer() {
               <input
                 type="search"
                 name="q"
+                aria-label="Search the Journal"
                 placeholder="Search the Journal…"
-                className="w-full bg-transparent px-3.5 py-3 text-[13px] text-white outline-none placeholder:text-white/40"
+                className="w-full bg-transparent px-3.5 py-3 text-[13px] text-white placeholder:text-white/40"
               />
               <button type="submit" aria-label="Search" className="px-3 text-white hover:text-signal">
                 <svg viewBox="0 0 24 24" className="size-[16px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">

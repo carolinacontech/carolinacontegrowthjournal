@@ -17,8 +17,9 @@ export function NewsletterForm() {
         <input
           type="email"
           required
+          aria-label="Email address"
           placeholder="Enter your email"
-          className="h-[46px] bg-white px-4 text-[13px] text-paper-ink outline-none placeholder:text-paper-muted"
+          className="h-[46px] bg-white px-4 text-[13px] text-paper-ink placeholder:text-paper-muted"
         />
         <button
           type="submit"

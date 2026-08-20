@@ -6,7 +6,7 @@
   --color-line: #232326;
   --color-ink: #ededee;
   --color-ink-muted: #9a9aa1;
-  --color-ink-faint: #616166;
+  --color-ink-faint: #86868d;
   --color-signal: #79c944;
   --color-signal-dim: #4e9f29;
   --color-amber: #e8a94c;
@@ -18,7 +18,7 @@
   --color-soft: #f7f8f6;
   --color-paper-line: #e7ebe7;
   --color-paper-ink: #101416;
-  --color-paper-muted: #718076;
+  --color-paper-muted: #606d64;
 }
 
 @theme inline {
@@ -56,6 +56,33 @@ body {
 ::selection {
   background: var(--color-signal);
   color: #0a0a0b;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  background: var(--color-signal);
+  color: #0a0a0b;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 .text-balance {
