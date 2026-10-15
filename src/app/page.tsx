@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import heroWave from "../../public/hero-wave.webp";
 import { getAllCaseStudies, getAllEvents, getAllNews, getAllResearch } from "@/lib/content";
 import { StatusDot } from "@/components/StatusDot";
 import { CategoryIcon } from "@/components/CategoryIcon";
@@ -37,9 +39,27 @@ export default async function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="hero-particles relative min-h-[540px] overflow-hidden bg-[radial-gradient(circle_at_88%_58%,rgba(121,201,68,.15),transparent_24%),linear-gradient(180deg,#061014_0%,#071315_100%)] pt-[118px] text-white">
+      <section className="relative min-h-[540px] overflow-hidden bg-[linear-gradient(180deg,#061014_0%,#071315_100%)] pt-[118px] text-white">
+        <Image
+          src={heroWave}
+          alt=""
+          aria-hidden
+          fill
+          preload
+          sizes="100vw"
+          placeholder="blur"
+          quality={90}
+          className="pointer-events-none select-none object-cover"
+        />
+        {/* Scrim over the artwork: a flat wash on narrow screens where copy spans the
+            full width, and a left-weighted gradient on desktop so the headline keeps
+            AA contrast while the wave stays visible behind the hero card. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(6,16,20,.88),rgba(6,16,20,.8))] lg:bg-[linear-gradient(90deg,#061014_0%,rgba(6,16,20,.95)_30%,rgba(6,16,20,.62)_62%,rgba(6,16,20,.5)_100%)]"
+        />
         <div className="relative z-[2] mx-auto grid max-w-6xl items-center gap-20 px-6 pb-[72px] pt-[42px] sm:px-8 lg:grid-cols-[1fr_1.22fr]">
-          <div>
+          <div className="min-w-0">
             <p className="mb-[18px] text-xs font-extrabold uppercase tracking-[0.12em] text-signal">
               Latest Research
             </p>
@@ -66,21 +86,21 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="grid min-h-[278px] grid-cols-[1fr_auto_1fr] items-center rounded-[18px] border border-white/[0.11] bg-[linear-gradient(145deg,rgba(255,255,255,.03),rgba(255,255,255,.015))] p-[38px] shadow-[0_25px_60px_rgba(0,0,0,.16)] backdrop-blur-[4px]">
+          <div className="grid min-h-[278px] min-w-0 grid-cols-[1fr_auto_1fr] items-center rounded-[18px] border border-white/[0.11] bg-[linear-gradient(145deg,rgba(6,16,20,.72),rgba(6,16,20,.6))] p-6 shadow-[0_25px_60px_rgba(0,0,0,.16)] backdrop-blur-[4px] sm:p-[38px]">
             <div className="mx-auto flex flex-col items-center gap-3 text-center">
-              <span className="grid size-[120px] place-items-center rounded-full border-[7px] border-signal/70 bg-signal/[0.04]">
+              <span className="grid size-[92px] place-items-center rounded-full border-[7px] border-signal/70 bg-signal/[0.04] sm:size-[120px]">
                 <StatusDot status={latest.status} />
               </span>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-white/50">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-white/70">
                 {statusLabel[latest.status]}
               </p>
             </div>
-            <span className="px-3.5 text-[32px] font-extrabold text-white">→</span>
+            <span className="px-2 text-[26px] font-extrabold text-white sm:px-3.5 sm:text-[32px]">→</span>
             <div className="mx-auto flex flex-col items-center gap-3 text-center">
-              <span className="grid size-[120px] place-items-center rounded-[34px] border border-[#f2bf93] bg-[linear-gradient(145deg,#eca86e,#c97d4c)] text-[#101416]">
+              <span className="grid size-[92px] place-items-center rounded-[26px] border border-[#f2bf93] bg-[linear-gradient(145deg,#eca86e,#c97d4c)] text-[#101416] sm:size-[120px] sm:rounded-[34px]">
                 <CategoryIcon category={latest.category} />
               </span>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-white/50">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-white/70">
                 {latest.category}
               </p>
             </div>
