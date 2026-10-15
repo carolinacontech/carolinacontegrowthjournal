@@ -1,19 +1,22 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import logoMark from "../../public/logo-mark.png";
 import { useState } from "react";
 import { site } from "@/lib/site";
 
 function Brand({ dark }: { dark?: boolean }) {
   return (
     <Link href="/" className="inline-flex w-max items-center gap-3.5 py-3.5" aria-label={site.name}>
-      <span className="relative grid size-[54px] place-items-center rounded-full border border-signal/55 shadow-[inset_0_0_30px_rgba(121,201,68,.13)]">
-        <span className="font-serif-display text-[27px] font-semibold tracking-[-0.05em] text-signal">
-          AI
-        </span>
-        <span className="absolute right-px top-1 size-1 rounded-full bg-[#d8ff79] shadow-[0_0_12px_#d8ff79]" />
-      </span>
+      <Image
+        src={logoMark}
+        alt=""
+        aria-hidden
+        loading="eager"
+        className="size-[54px] shrink-0"
+      />
       <span
         className={`flex flex-col leading-none tracking-[0.28em] text-sm ${dark ? "text-paper-ink" : "text-white"}`}
       >
