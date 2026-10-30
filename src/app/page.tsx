@@ -6,6 +6,7 @@ import { StatusDot } from "@/components/StatusDot";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { CoverArt } from "@/components/CoverArt";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { HeroParticles } from "@/components/HeroParticles";
 import { site, statusLabel } from "@/lib/site";
 import { formatDate } from "@/lib/format";
 
@@ -51,6 +52,9 @@ export default async function Home() {
           quality={90}
           className="pointer-events-none select-none object-cover"
         />
+        {/* Live particle scene; fades in over the artwork once its first frame renders
+            and is skipped entirely for reduced motion or missing WebGL. */}
+        <HeroParticles />
         {/* Scrim over the artwork: a flat wash on narrow screens where copy spans the
             full width, and a left-weighted gradient on desktop so the headline keeps
             AA contrast while the wave stays visible behind the hero card. */}
